@@ -37,7 +37,7 @@ import volo.heroku_volo.Aereo;
 public class CompagniaImpl {
 	@GET
 	@Path("{id}")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response getPerson(@Context HttpHeaders headers, @PathParam("id") String is) throws Exception {
 		int id = Integer.parseInt(is);
 		Response response=null;
@@ -113,7 +113,7 @@ public class CompagniaImpl {
     }
 	@GET
 	@Path("all")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response getAllPerson(@Context HttpHeaders headers) throws Exception {
 		Response response=null;
 		if(!TrattaImpl.isAdmin(headers)) {
@@ -193,7 +193,7 @@ public class CompagniaImpl {
     }
 	@DELETE
 	@Path("{id}")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response deletePerson(@Context HttpHeaders headers, @PathParam("id") String is) throws Exception{
 		int id =Integer.parseInt(is);
 		Response response=null;
@@ -245,8 +245,8 @@ public class CompagniaImpl {
 	
 	@POST
 	@Path("register")
-	@Consumes({"appliaction/json"})
-	@Produces({"appliaction/json"})
+	@Consumes({"application/json"})
+	@Produces({"application/json"})
 	public Response registerCompagnia(String is) throws Exception{
 		Response response=null;
 		Compagnia compagnia = readCompagniaRegistrazione(is);
@@ -292,8 +292,8 @@ public class CompagniaImpl {
 		return response;
 	}
 	@PUT
-	@Consumes({"appliaction/json"})
-	@Produces({"appliaction/json"})
+	@Consumes({"application/json"})
+	@Produces({"application/json"})
 	public Response updateCompagnia(@Context HttpHeaders headers, String is) throws Exception{
 		Response response=null;
 		if(!(TrattaImpl.isAuthorized(headers)||TrattaImpl.isAdmin(headers))) {

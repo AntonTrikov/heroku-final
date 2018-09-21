@@ -39,7 +39,7 @@ public class TrattaImpl {
 	
 	@DELETE
 	@Path("{id}")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response deletePerson(@Context HttpHeaders headers, @PathParam("id") String is) throws Exception{
 		int id =Integer.parseInt(is);
 		Response response=null;
@@ -135,8 +135,8 @@ public class TrattaImpl {
 			} 
 	*/
 	@PUT
-	@Consumes({"appliaction/json"})
-	@Produces({"appliaction/json"})
+	@Consumes({"application/json"})
+	@Produces({"application/json"})
     public Response putPerson(@Context HttpHeaders headers, String is) throws Exception{
 		Response response=null;
 		if(!(isAuthorized(headers)||isAdmin(headers))) {
@@ -204,7 +204,7 @@ public class TrattaImpl {
     }
 	@GET
 	@Path("{id}")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response getPerson(@PathParam("id") String is) throws Exception {
 		int id = Integer.parseInt(is);
 		PreparedStatement query = null;
@@ -266,7 +266,7 @@ public class TrattaImpl {
 	 */
 	@GET
 	@Path("query")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response getPerson(@Context UriInfo info) throws Exception {
 		String partenzaQuery = info.getQueryParameters().getFirst("partenza");
 		String arrivoQuery = info.getQueryParameters().getFirst("arrivo");
@@ -332,7 +332,7 @@ public class TrattaImpl {
     }
 	@GET
 	@Path("all")
-	@Produces({"appliaction/json"})
+	@Produces({"application/json"})
     public Response getAllPerson() throws Exception {
 		Response response=null;
 		PreparedStatement query = null;
@@ -385,8 +385,8 @@ public class TrattaImpl {
 		return response;
     }
 	@POST
-	@Consumes({"appliaction/json"})
-	@Produces({"appliaction/json"})
+	@Consumes({"application/json"})
+	@Produces({"application/json"})
 	public Response createCustomer(@Context HttpHeaders headers, String is) throws Exception{
 		Response response=null;
 		if(!(isAuthorized(headers)||isAdmin(headers))) {
